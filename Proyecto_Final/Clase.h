@@ -1,5 +1,5 @@
-#ifndef TAREA_H
-#define TAREA_H
+#ifndef CLASE_H
+#define CLASE_H
 #include "Asignatura.h"
 struct Clase {
 	//Datos

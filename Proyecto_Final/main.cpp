@@ -1,9 +1,25 @@
 #include <iostream>
-
-/* run this program using the console pauser or add your own getch, system("pause") or input loop */
-
+#include <limits>
+#include "IngresoTema.h"
+#include "IngresoActividadCorte.h"
+using namespace std;
 int main(int argc, char** argv) {
 	
-	int x;
+	int imax = std::numeric_limits<int>::max();
+	cout<<imax;
+	
+	string hola;
+	
+	/*ControladorIngresoTema p;
+	p.ingresarTemario();
+	p.mostrarTemario();
+	p.crearTarea();*/
+	IngresoActividadCorte p;
+	p.menuActividades();
+	
+	
+	
+	
+	
 	return 0;
 }

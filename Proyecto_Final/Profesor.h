@@ -7,17 +7,13 @@ struct Profesor {
 		string apellidos;
 		string nombres;
 		int numTotalClases;
-		//De acuerdo a la cantidad de cortes se asigna el valor
-		Corte *cantidadCortes; //corte 1-2-3....n
-		
-		
-		
-		//Apuntador al siguiente profesor.
-    	Profesor * profesorSig;
+		BASEDEDATOS<Corte> listaCortesXPro;//De acuerdo a la cantidad de cortes se asigna el valor
+		//Corte *cantidadCortes; //corte 1-2-3....n
 };
-
-
 #endif
+
+
+
 
 
 
