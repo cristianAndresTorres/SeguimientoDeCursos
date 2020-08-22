@@ -45,7 +45,7 @@ Corte IngresoActividadCorte::menuActividades(){
 		cout<<"6. finalizar"<<endl;
 		cout<<"Escoja las actividades a realizar por corte : ";
 		cin>>opcion;
-		if(opcion==1 || opcion==2|| opcion==3|| opcion==4 || opcion==5 || opcion==6){
+		if(opcion==1 || opcion==2|| opcion==3|| opcion==4 || opcion==5){
 			cout<<"................................................................................................."<<endl;
 			cout<<"Ingrese porcentaje total que coresponde al mismo tipo de actividad "<<opcion<<" en el corte : ";
 			cin>>porcentaje;

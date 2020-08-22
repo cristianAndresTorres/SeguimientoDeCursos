@@ -6,10 +6,7 @@ struct Archivo {
 		int claveArchivo;
 		//Datos
 		string nombreDelArchivo; 
-		string ubicacionDelArchivo;
-		
-		
-		Archivo *archivoSiguiente;
-				
+		string ubicacionDelArchivo;	
+		string extensionArchivo;			
 };
 #endif

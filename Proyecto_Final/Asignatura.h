@@ -5,9 +5,11 @@ struct Asignatura {
 	//Datos
 	string nombreAsignatura;
 	int grupoAsignatura;
+	int cantidadCorte;
 	
 	Archivo *notasDelCorte;
 	
-	Asignatura * siguienteAsignatura;//Para el mismo docente
+	BASEDEDATOS<Corte> listaCortesXAsig;//Para el mismo docente
+	
 };
 #endif

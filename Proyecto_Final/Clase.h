@@ -1,12 +1,9 @@
 #ifndef CLASE_H
 #define CLASE_H
-#include "Asignatura.h"
+#include "Profesor.h"
 struct Clase {
-	//Datos
-	//Ambos datos se recuperan de la estructura profesor
-	int cedulaProfesor;
-	int cantidadClasesDocente;
-	Asignatura *grupoAsignatura; //Del mismo profesor
-	Clase *claseSiguiente; //De otro profesor
+	int idMateria=0;
+	string nombreMateria;
+	BASEDEDATOS<Profesor> listaProXClase;//Lista de profesores para una misma clase
 };
 #endif

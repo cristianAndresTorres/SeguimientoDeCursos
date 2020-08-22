@@ -115,7 +115,7 @@ T BASEDEDATOS<T>::buscar(int clave){
 	if(Aux->clave==clave){
 		info=Aux->info;
 		return info;
-	}	
+	}
 }
 
 

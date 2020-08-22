@@ -1,13 +1,14 @@
 #ifndef PROFESOR_H
 #define PROFESOR_H
-#include "Corte.h"
+#include "Asignatura.h"
+
 struct Profesor {
 		//Datos
-		int cedula;
+		int cedula=0;
 		string apellidos;
 		string nombres;
 		int numTotalClases;
-		BASEDEDATOS<Corte> listaCortesXPro;//De acuerdo a la cantidad de cortes se asigna el valor
+		BASEDEDATOS<Asignatura> listaAsignaturasPro;//De acuerdo a la cantidad de cortes se asigna el valor
 		//Corte *cantidadCortes; //corte 1-2-3....n
 };
 #endif

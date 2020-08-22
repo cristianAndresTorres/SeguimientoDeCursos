@@ -1,13 +1,14 @@
 #ifndef CONTROLADORINGRESODOCENTE_H
 #define CONTROLADORINGRESODOCENTE_H
 #include "Profesor.h"
-#include "IngresoActividadCorte.h";
+#include "ControladorAsignatura.h"
 
 
 
 class ControladorIngresoDocente{
 	BASEDEDATOS<Profesor> BDListaProfesores;
-	IngresoActividadCorte actividadXCorte;
+	IngresoAsignatura ingresoAsignatura;
+	
 	
 	public :
 		static int claveDocente;
@@ -18,6 +19,8 @@ class ControladorIngresoDocente{
 		void menuProfesor();
 		void ingresarProfesor();
 		void registrarProfesor();
+		void menuIngreso(Profesor profeRegistro);
+		void ingresaInfoAsig(Profesor profesor);
 };
 int ControladorIngresoDocente::claveDocente = 1;
 int ControladorIngresoDocente::claveXCorte  = 1;
@@ -45,6 +48,25 @@ void ControladorIngresoDocente::menuProfesor(){
 	}
 }
 void ControladorIngresoDocente::ingresarProfesor(){
+	Profesor profesor;
+	int cedula;
+	do{
+		//----------------------------------------
+		//Verificar el usuario
+		cout<<"------------Ingreso Docente------------"<<endl;
+		cout<<"Ingrese el numero del documento de identificacion : ";
+		cin>>cedula;
+		//Validacion------------------------------
+		profesor = BDListaProfesores.buscar(cedula);
+		if(profesor.cedula==0){
+			cout<<"Acceso denegado"<<endl;
+			menuProfesor();
+		}
+	}while(profesor.cedula==0);
+	cout<<"El usuario "<<profesor.nombres<<" "<<profesor.apellidos<<" "<<" ingreso corectamente =)"<<endl;
+	menuIngreso(profesor);
+	
+	
 	
 }	
 void ControladorIngresoDocente::registrarProfesor(){
@@ -53,6 +75,7 @@ void ControladorIngresoDocente::registrarProfesor(){
 	string apellidos;
 	string nombres;
 	int numTotalClases;
+	cout<<"----------------Registro Docente----------------"<<endl;
 	cout<<"_________________Datos personales_______________"<<endl;
 	cout<<"Ingrese el numero de su cedula 				: ";
 	cin>>cedula;
@@ -67,15 +90,47 @@ void ControladorIngresoDocente::registrarProfesor(){
 	profeRegistro.apellidos = apellidos;
 	profeRegistro.nombres = nombres;
 	profeRegistro.numTotalClases = numTotalClases;
-	//-----------------------------------------------------------------------------------
-	profeRegistro.listaCortesXPro.insertar(claveXCorte,actividadXCorte.menuActividades());
+	//-----------------------------------------------------------------------------------	
+	//Insertar un nuevo profesor a la lista de profesores
+	BDListaProfesores.insertar(profeRegistro.cedula, profeRegistro);
+	claveDocente++;
+}
+
+void ControladorIngresoDocente::menuIngreso(Profesor profeRegistro){
+	int opcion;
+	do{
+		cout<<"_______________Menu ingreso_______________"<<endl;
+		cout<<"1. Consultar informacion   "<<endl;
+		cout<<"2. Modificar informacion   "<<endl;
+		cout<<"3. Ingresar informacion de una materia"<<endl;
+		cout<<"4. Enviar archivo por corte"<<endl;
+		cout<<"5. Salir"<<endl;	
+		cout<<"Ingrese la opcion : ";
+		cin>>opcion;
+	}while(!((opcion==1)||(opcion==2)||(opcion==3)||(opcion==4))||(opcion==5));
 	
-	
-	BDListaProfesores.insertar(claveDocente, profeRegistro);
+	switch(opcion) {
+		case 1:
+			break;
+		case 2:
+			break;
+		case 3:
+				ingresaInfoAsig(profeRegistro);
+			break;	
+		case 4:
+			break;			
+		default:
+			cout<<"Error"<<endl;
+	}
+
 }		
 
-
-
-
+void ControladorIngresoDocente::ingresaInfoAsig(Profesor profesor){
+	ingresoAsignatura.menuAsignatura(profesor);
+	/*
+	Asignatura a = profesor.listaAsignaturasPro.buscar(10);
+	cout<<"Hola estrellita "<<endl;
+	cout<<a.nombreAsignatura;*/
+}
 
 #endif
